@@ -33,12 +33,12 @@ function renderGithubUserRepository(repo) {
     const starContainer = document.createElement("div");
     starContainer.classList.add("star-container");
     const starImg = document.createElement("img");
-    starImg.src = "./img/octicons/star.svg";
+    starImg.src = "./public/img/octicons/star.svg";
     starImg.classList.add("star-icon");
     const forkContainer = document.createElement("div");
     forkContainer.classList.add("fork-container");
     const forkImg = document.createElement("img");
-    forkImg.src = "./img/octicons/fork.svg";
+    forkImg.src = "./public/img/octicons/fork.svg";
     forkImg.classList.add("fork-icon");
     const star = document.createElement("p");
     star.textContent = `${repo.stargazers_count}`;
