@@ -29,7 +29,7 @@ async function renderUser(user: GithubUser) {
 
   // Imagem inicial
   const placeholderImg = document.createElement("img") as HTMLImageElement;
-  placeholderImg.src = "./public/img/github-mark/github-mark-white.png";
+  placeholderImg.src = "../public/img/github-mark/github-mark-white.png";
   placeholderImg.classList.add("user-image", "user-image-load");
 
   userImg.onload = function () {
