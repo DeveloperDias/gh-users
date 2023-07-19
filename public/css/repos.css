@@ -24,7 +24,8 @@
   color: #5196fd;
 }
 .repository-description {
-  font-size: 0.895rem;
+  font-size: 28px;
+  line-height: 1.6;
 }
 
 /* REPOSITORY HEADER */
