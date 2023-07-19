@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  text-decoration: none;
+}
+a {
+  color: white;
+}
+
+body {
+  width: 100%;
+  background-color: #0d1117;
+  color: #e6edf3;
+  height: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  width: 100%;
+}
+
+.logo {
+  align-items: center;
+  gap: 15px;
+  display: flex;
+  font-size: 1.2rem;
+}
+.logo img {
+  height: 50px;
+  width: fit-content;
+}
+
+.user-container {
+  width: 100%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+  margin-bottom: 50px;
+  display: flex;
+  gap: 30px;
+}
+.user-flex {
+  gap: 30px;
+  display: flex;
+  animation: toRight 500ms both ease;
+}
+.user-flex h2,
+h3 {
+  text-align: center;
+}
+.user-flex h2 {
+  margin-top: 10px;
+  max-width: 200px;
+}
+
+.user-image {
+  max-width: 201px;
+  border: 2px solid rgba(244, 252, 240, 0.1);
+  height: fit-content;
+  border-radius: 9999px;
+  margin-bottom: 5px;
+}
+.user-image-load {
+  filter: opacity(0.1);
+}
+
+.user-info h3 {
+  color: #7d8590;
+  font-weight: 100;
+  letter-spacing: 0.2px;
+}
+
+.user-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.user-follow {
+  display: flex;
+  gap: 10px;
+}
+.user-follow p {
+  min-width: fit-content;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.user-id {
+  font-weight: 800;
+  color: rgba(244, 252, 240, 0.1);
+}
+
+.follow-space {
+  background-color: rgba(240, 246, 252, 0.1);
+  height: 5px;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  align-self: center;
+}
+
+.user-bio {
+  padding: 10px;
+  border: 2px solid rgba(240, 246, 252, 0.1);
+  border-radius: 5px;
+  word-wrap: break-word;
+  max-width: 445px;
+  min-width: 270px;
+  min-height: 115px;
+}
+
+.user-repositories {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 400;
+}
+
+/* FORM STYLES */
+header {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  border-bottom: 2px solid rgba(244, 252, 240, 0.1);
+  background-color: #0d1117;
+  width: 100%;
+  align-items: center;
+  padding: 10px;
+  padding-inline: 10%;
+  z-index: 9999;
+  position: fixed;
+}
+header .header-title {
+  color: #ffffffbf;
+  transition: ease 150ms;
+  font-weight: 900;
+}
+header .header-title:hover {
+  color: #8ab9ff;
+}
+form {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+}
+
+input {
+  padding: 8px;
+  height: 40px;
+  border-radius: 5px 0px 0px 5px;
+  font-size: 1.075rem;
+  width: 200px;
+}
+input:focus {
+  box-shadow: inset 0px 0px 0px 2px #8ab9ff;
+}
+.searchBtn {
+  background-color: rgba(240, 246, 252, 0.1);
+  border: none;
+  padding: 8px;
+  background-image: url("../img/octicons/search.svg");
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+  width: 40px;
+  color: white;
+  border-radius: 0px 5px 5px 0px;
+  transition: 100ms ease;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+.searchBtn:hover {
+  cursor: pointer;
+  background-color: #8ab9ff;
+  color: #265aa3;
+  background-image: url("../img/octicons/search-hover.svg");
+}
+
+@keyframes toRight {
+  0% {
+    opacity: 0;
+    margin-right: 200px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 880px) {
+  .logo {
+    align-items: center;
+    gap: 15px;
+    display: flex;
+    font-size: 1rem;
+  }
+  .logo img {
+    height: 40px;
+    width: fit-content;
+  }
+}
+
+@media (max-width: 700px) {
+  .user-container {
+    align-items: center;
+    flex-direction: column;
+  }
+  .user-flex,
+  .user-aside {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header img,
+  .logo {
+    display: none;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+}
+
+.warn-message {
+  position: absolute;
+  opacity: 0.2;
+  top: 50%;
+}
+
+@media (max-width: 550px) {
+  .user-bio {
+    max-width: 260px;
+  }
+  .warn-message {
+    font-size: 1.4rem;
+  }
+}

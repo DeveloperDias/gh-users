@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Users</title>
+    <script defer type="module" src="./public/dist/index.js"></script>
+    <link rel="stylesheet" href="./public/css/style.css" />
+    <link rel="stylesheet" href="./public/css/repos.css" />
+    <link
+      rel="shortcut icon"
+      href="./img/github-mark/github-mark-pink.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="./index.html">
+          <img src="./public/img/github-mark/github-mark-white.png" />
+        </a>
+
+        <h1><a class="header-title" href="./index.html">Users</a></h1>
+      </div>
+
+      <form>
+        <label for="username"></label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Github Username"
+        />
+        <button class="searchBtn"></button>
+      </form>
+    </header>
+    <main>
+      <div class="user-container">
+        <h1 class="warn-message">Search a github user</h1>
+      </div>
+    </main>
+  </body>
+</html>

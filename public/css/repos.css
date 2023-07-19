@@ -1,0 +1,133 @@
+/* REPOSITORIES CONTAINER */
+.repositories-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* REPOSITORY DIV */
+.repository {
+  gap: 10px;
+  border: 2px solid rgba(240, 246, 252, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 450px;
+  animation: toLeft 500ms both ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.repository h3 {
+  font-size: 1rem;
+  color: #5196fd;
+}
+.repository-description {
+  font-size: 0.895rem;
+}
+
+/* REPOSITORY HEADER */
+.repository-header {
+  padding-bottom: 5px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  min-width: 200px;
+  border-bottom: 1px solid rgba(240, 246, 252, 0.1);
+}
+
+/* REPOSITORY TITLE */
+.repository-title {
+  word-break: break-all;
+}
+.repository-title::before {
+  content: " ";
+  display: inline-block;
+  margin-right: 5px;
+  opacity: 0.5;
+  height: 16px;
+  width: 16px;
+  background-image: url("../img/octicons/link.svg");
+  background-size: contain;
+}
+
+/* REPOSITORY REACH */
+.repository-reach {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: right;
+}
+.star-container,
+.fork-container {
+  display: flex;
+  gap: 5px;
+  opacity: 0.7;
+}
+.star-icon {
+  height: 18px;
+  width: fit-content;
+}
+.fork-icon {
+  height: 18px;
+  width: fit-content;
+}
+
+/* REPOSITORY DESCRIPTION */
+.repository-description {
+  width: 100%;
+  color: rgb(191, 191, 191);
+  margin-bottom: 10px;
+  font-size: 0.845rem;
+  font-weight: 300;
+}
+
+/* REPOSITORY LANGUAGE */
+
+.repository-language {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: fit-content;
+}
+.repository-language p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+.repository-language-span {
+  box-shadow: 0px 0px 0px 1px rgba(240, 246, 252, 0.1);
+  border-radius: 50%;
+  display: block;
+  height: 10px;
+  width: 10px;
+}
+
+/* REPOSITORY FOOTER */
+
+.repository-footer {
+  display: flex;
+}
+
+/* ----- KEYFRAMES ----- */
+@keyframes toLeft {
+  0% {
+    opacity: 0;
+    margin-right: -50px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0px;
+  }
+}
+
+/* ----- RESPONSIVE MEDIAS ----- */
+@media (max-width: 720px) {
+  .repositories-container {
+    grid-template-columns: 1fr;
+  }
+  .repository {
+    max-width: 350px;
+  }
+}
