@@ -94,11 +94,15 @@ h3 {
   gap: 10px;
 }
 .user-follow p {
-  border: 2px solid rgba(240, 246, 252, 0.1);
+  border: 1px solid rgba(240, 246, 252, 0.1);
   padding: 10px;
   border-radius: 5px;
   text-align: center;
-  font-weight: 500;
+}
+.user-follow-value {
+  color: white;
+  margin-left: 5px;
+  font-weight: 600;
 }
 .user-id {
   font-weight: 800;
@@ -107,7 +111,8 @@ h3 {
 
 .user-bio {
   padding: 15px;
-  border: 2px solid rgba(240, 246, 252, 0.1);
+  border: 1px solid rgba(240, 246, 252, 0.1);
+
   border-radius: 5px;
   font-weight: 300;
   word-wrap: break-word;

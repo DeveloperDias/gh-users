@@ -10,7 +10,7 @@
 /* REPOSITORY DIV */
 .repository {
   gap: 10px;
-  border: 2px solid rgba(240, 246, 252, 0.1);
+  border: 1px solid rgba(240, 246, 252, 0.1);
   border-radius: 8px;
   padding: 20px;
   max-width: 450px;

@@ -61,10 +61,10 @@ async function renderUser(user: GithubUser) {
   userFollowContainer.classList.add("user-follow");
 
   const followers = document.createElement("p");
-  followers.textContent = `Followers: ${user.followers}`;
+  followers.innerHTML = `Followers: <span class='user-follow-value'>${user.followers}</span>`;
 
   const following = document.createElement("p");
-  following.textContent = `Following: ${user.following}`;
+  following.innerHTML = `Following: <span class='user-follow-value'>${user.following}</span>`;
 
   // USER BIO
 
