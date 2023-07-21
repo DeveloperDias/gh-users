@@ -20,7 +20,7 @@ async function renderUser(user) {
     userImg.classList.add("user-image");
     // Imagem inicial
     const placeholderImg = document.createElement("img");
-    placeholderImg.src = "./public/img/github-mark/github-mark-white.png";
+    placeholderImg.src = "../public/img/github-mark/github-mark-white.png";
     placeholderImg.classList.add("user-image", "user-image-load");
     userImg.onload = function () {
         // Substituir a imagem inicial pela imagem do usuário quando ela carregar

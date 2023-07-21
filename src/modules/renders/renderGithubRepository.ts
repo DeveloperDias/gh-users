@@ -6,7 +6,6 @@ function renderGithubUserRepository(repo: UserRepository) {
   const repositoriesContainer = document.querySelector(
     ".repositories-container"
   );
-
   // REPOSITORY DIV --------------
   const repository = document.createElement("div");
   repository.classList.add("repository");

@@ -4,6 +4,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   margin-top: 20px;
+  animation: fade 1s alternate ease;
 }
 
 /* REPOSITORY DIV */
@@ -13,7 +14,6 @@
   border-radius: 8px;
   padding: 20px;
   max-width: 450px;
-  animation: toLeft 500ms both ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -112,14 +112,12 @@
 }
 
 /* ----- KEYFRAMES ----- */
-@keyframes toLeft {
+@keyframes fade {
   0% {
     opacity: 0;
-    margin-right: -50px;
   }
   100% {
     opacity: 1;
-    margin-right: 0px;
   }
 }
 
