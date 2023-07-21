@@ -130,3 +130,9 @@
     max-width: 350px;
   }
 }
+
+@media (max-width: 350px) {
+  .repository {
+    max-width: 280px;
+  }
+}
