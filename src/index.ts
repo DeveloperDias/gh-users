@@ -50,6 +50,7 @@ async function searchUser(ev: Event) {
     })
     .then(() => {
       repoResponse.then((repoData) => {
+        const repos: UserRepository[] = [];
         if (repoData !== null && Array.isArray(repoData)) {
           repoData.map((repo) => {
             const newRepository: UserRepository = new UserRepository(
@@ -62,9 +63,12 @@ async function searchUser(ev: Event) {
               repo.stargazers_count,
               repo.html_url
             );
-
-            renderGithubUserRepository(newRepository);
+            repos.push(newRepository);
           });
+          const reposMostStars = repos.sort(
+            (a, b) => b.stargazers_count - a.stargazers_count
+          );
+          reposMostStars.map((rep) => renderGithubUserRepository(rep));
         }
       });
     });
