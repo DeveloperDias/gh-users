@@ -18,12 +18,12 @@ async function renderUser(user) {
     userImgAnchor.target = "_blank";
     const userImg = document.createElement("img");
     userImg.classList.add("user-image");
-    // Imagem inicial
+    // IMAGEM INICIAL
     const placeholderImg = document.createElement("img");
-    placeholderImg.src = "../public/img/github-mark/github-mark-white.png";
+    placeholderImg.src = "./public/img/github-mark/github-mark-white.png";
     placeholderImg.classList.add("user-image", "user-image-load");
     userImg.onload = function () {
-        // Substituir a imagem inicial pela imagem do usuário quando ela carregar
+        // SUBSTITUIR O PLACEHOLDER PELA IMAGEM DO USUÁRIO QUANDO CARREGAR
         userImgAnchor.removeChild(placeholderImg);
         userImgAnchor.appendChild(userImg);
     };
@@ -44,16 +44,12 @@ async function renderUser(user) {
     userFollowContainer.classList.add("user-follow");
     const followers = document.createElement("p");
     followers.textContent = `Followers: ${user.followers}`;
-    const spanDecoration = document.createElement("span");
-    spanDecoration.classList.add("follow-space");
     const following = document.createElement("p");
-    following.textContent = `following: ${user.following}`;
+    following.textContent = `Following: ${user.following}`;
     // USER BIO
     const userBioContainer = document.createElement("div");
     userBioContainer.classList.add("user-bio");
     const bio = document.createElement("p");
-    // if (user.bio !== null) bio.textContent = `${user.bio}`;
-    // else bio.textContent = "Empty Biographic";
     // REPOSITORIES
     const userRepositoriesContainer = document.createElement("div");
     userRepositoriesContainer.classList.add("user-repositories");
