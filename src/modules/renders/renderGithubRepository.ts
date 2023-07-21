@@ -39,24 +39,25 @@ function renderGithubUserRepository(repo: UserRepository) {
   // -- Repository Reach Div
   const repositoryReach = document.createElement("div");
   repositoryReach.classList.add("repository-reach");
+
   // -- Star and fork counters
   const starContainer = document.createElement("div");
   starContainer.classList.add("star-container");
-  const starImg = document.createElement("img") as HTMLImageElement;
-  starImg.src = "./public/img/octicons/star.svg";
-  starImg.classList.add("star-icon");
+  const star = document.createElement("p");
+  const starAnchor = document.createElement("a") as HTMLAnchorElement;
+  starAnchor.href = repo.html_url;
 
   const forkContainer = document.createElement("div");
   forkContainer.classList.add("fork-container");
+  const fork = document.createElement("p");
+  const forkAnchor = document.createElement("a") as HTMLAnchorElement;
+  forkAnchor.href = repo.html_url;
   const forkImg = document.createElement("img") as HTMLImageElement;
   forkImg.src = "./public/img/octicons/fork.svg";
   forkImg.classList.add("fork-icon");
 
-  const star = document.createElement("p");
   star.textContent = `${repo.stargazers_count}`;
-
-  const fork = document.createElement("p");
-  fork.textContent = `${repo.stargazers_count}`;
+  fork.textContent = `${repo.forks_count}`;
 
   // REPOSITORY LANGUAGE DIV ------------
   const repositoryLanguage = document.createElement("div");
@@ -70,8 +71,10 @@ function renderGithubUserRepository(repo: UserRepository) {
 
   // APPENDS
 
-  starContainer.append(starImg, star);
-  forkContainer.append(forkImg, fork);
+  starAnchor.appendChild(star);
+  forkAnchor.appendChild(forkImg);
+  starContainer.append(starAnchor);
+  forkContainer.append(forkAnchor, fork);
   repositoryReach.append(starContainer, forkContainer);
   titleAnchor.appendChild(title);
 

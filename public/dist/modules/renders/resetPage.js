@@ -1,6 +1,8 @@
 function resetUserPage() {
-    const container = document.querySelector(".user-container");
-    if (container)
-        container.remove();
+    const containers = document.querySelectorAll(".user-container");
+    containers.forEach((container) => {
+        if (container)
+            container.remove();
+    });
 }
 export default resetUserPage;

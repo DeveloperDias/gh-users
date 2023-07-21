@@ -1,6 +1,10 @@
 function resetUserPage() {
-  const container = document.querySelector(".user-container") as HTMLDivElement;
-  if (container) container.remove();
+  const containers = document.querySelectorAll(
+    ".user-container"
+  ) as NodeListOf<HTMLDivElement>;
+  containers.forEach((container) => {
+    if (container) container.remove();
+  });
 }
 
 export default resetUserPage;
