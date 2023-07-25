@@ -26,7 +26,7 @@ function searchUser(ev: Event): void {
   const myUser: string = "DeveloperDias";
   if (username.value === "") username.value = myUser;
 
-  if (currentUser !== username.value) {
+  if (currentUser.toLowerCase() !== username.value.toLowerCase()) {
     if (!isRendering) {
       isRendering = true;
 
