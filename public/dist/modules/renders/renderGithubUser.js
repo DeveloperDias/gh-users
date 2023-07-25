@@ -31,7 +31,6 @@ async function renderUser(user) {
     const name = document.createElement("h2");
     name.textContent = user.name;
     const login = document.createElement("h3");
-    login.classList.add("user-login");
     login.textContent = user.login;
     //////////////////////////////////////////
     // USER ASIDE

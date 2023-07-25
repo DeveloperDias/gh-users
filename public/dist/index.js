@@ -10,20 +10,23 @@ import renderWarn from "./modules/renders/renderWarn.js";
 import renderGithubUserRepository from "./modules/renders/renderGithubRepository.js";
 // IMPORT RESETS / REMOVE
 import resetUserPage from "./modules/renders/resetPage.js";
+// VARIABLES TO PREVENT A DOUBLE FETCH OR RESET
 let isRendering = false;
 let currentUser = "";
-async function searchUser(ev) {
+// SEARCH FUNCTION
+function searchUser(ev) {
     ev.preventDefault();
     const username = document.querySelector("#username");
     const myUser = "DeveloperDias";
     if (username.value === "")
         username.value = myUser;
-    if (currentUser !== username.value) {
+    if (currentUser.toLowerCase() !== username.value.toLowerCase()) {
         if (!isRendering) {
             isRendering = true;
             resetUserPage();
             const userResponse = FetchGithubUser(username.value !== "" ? username.value : myUser);
             const repoResponse = FetchGithubUserRepository(username.value !== "" ? username.value : myUser);
+            // RENDERING USER HTML
             userResponse
                 .then(async (userData) => {
                 if (userData.message !== "Not Found") {
@@ -35,6 +38,7 @@ async function searchUser(ev) {
                     renderWarn();
             })
                 .then(() => {
+                // RENDERING REPOSITORIES HTML
                 repoResponse.then((repoData) => {
                     const repos = [];
                     if (repoData !== null && Array.isArray(repoData)) {
