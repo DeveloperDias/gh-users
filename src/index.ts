@@ -14,67 +14,80 @@ import renderGithubUserRepository from "./modules/renders/renderGithubRepository
 // IMPORT RESETS / REMOVE
 import resetUserPage from "./modules/renders/resetPage.js";
 
-let isRendering: boolean = true;
+// VALUES TO PREVENT A DOUBLE FETCH OR RESET
+let isRendering: boolean = false;
+let currentUser: string = "";
 
-async function searchUser(ev: Event) {
+// SEARCH FUNCTION
+function searchUser(ev: Event): void {
   ev.preventDefault();
-  if (isRendering) {
-    isRendering = false;
-    resetUserPage();
-    const username = document.querySelector("#username") as HTMLInputElement;
-    const myUser: string = "DeveloperDias";
 
-    const userResponse = FetchGithubUser(
-      username.value !== "" ? username.value : myUser
-    );
-    const repoResponse = FetchGithubUserRepository(
-      username.value !== "" ? username.value : myUser
-    );
+  const username = document.querySelector("#username") as HTMLInputElement;
+  const myUser: string = "DeveloperDias";
+  if (username.value === "") username.value = myUser;
 
-    userResponse
-      .then(async (userData) => {
-        if (userData.message !== "Not Found") {
-          const newUser: GithubUser = new GithubUser(
-            userData.name,
-            userData.id,
-            userData.login,
-            userData.repos_url,
-            userData.html_url,
-            userData.public_repos,
-            userData.avatar_url,
-            userData.followers,
-            userData.following,
-            userData.bio
-          );
-          console.log(userData);
-          renderGithubUser(newUser);
-        } else renderWarn();
-      })
-      .then(() => {
-        repoResponse.then((repoData) => {
-          const repos: UserRepository[] = [];
-          if (repoData !== null && Array.isArray(repoData)) {
-            repoData.map((repo) => {
-              const newRepository: UserRepository = new UserRepository(
-                repo.id,
-                repo.name,
-                repo.description,
-                repo.visibility,
-                repo.language,
-                repo.forks_count,
-                repo.stargazers_count,
-                repo.html_url
-              );
-              repos.push(newRepository);
-            });
-            const reposMostStars = repos.sort(
-              (a, b) => b.stargazers_count - a.stargazers_count
+  if (currentUser !== username.value) {
+    if (!isRendering) {
+      isRendering = true;
+
+      resetUserPage();
+
+      const userResponse = FetchGithubUser(
+        username.value !== "" ? username.value : myUser
+      );
+      const repoResponse = FetchGithubUserRepository(
+        username.value !== "" ? username.value : myUser
+      );
+
+      // RENDERING USER HTML
+      userResponse
+        .then(async (userData) => {
+          if (userData.message !== "Not Found") {
+            const newUser: GithubUser = new GithubUser(
+              userData.name,
+              userData.id,
+              userData.login,
+              userData.repos_url,
+              userData.html_url,
+              userData.public_repos,
+              userData.avatar_url,
+              userData.followers,
+              userData.following,
+              userData.bio
             );
-            reposMostStars.map((rep) => renderGithubUserRepository(rep));
-          }
+            currentUser = userData.login;
+            renderGithubUser(newUser);
+          } else renderWarn();
+        })
+        .then(() => {
+          // RENDERING REPOSITORIES HTML
+          repoResponse.then((repoData) => {
+            const repos: UserRepository[] = [];
+            if (repoData !== null && Array.isArray(repoData)) {
+              repoData.map((repo) => {
+                const newRepository: UserRepository = new UserRepository(
+                  repo.id,
+                  repo.name,
+                  repo.description,
+                  repo.visibility,
+                  repo.language,
+                  repo.forks_count,
+                  repo.stargazers_count,
+                  repo.html_url
+                );
+                repos.push(newRepository);
+              });
+              const reposMostStars = repos.sort(
+                (a, b) => b.stargazers_count - a.stargazers_count
+              );
+              reposMostStars.map((rep) => renderGithubUserRepository(rep));
+            }
+          });
+        })
+        .then(() => {
+          isRendering = false;
         });
-      })
-      .then(() => (isRendering = true));
+    }
   }
 }
 
