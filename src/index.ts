@@ -14,7 +14,7 @@ import renderGithubUserRepository from "./modules/renders/renderGithubRepository
 // IMPORT RESETS / REMOVE
 import resetUserPage from "./modules/renders/resetPage.js";
 
-// VALUES TO PREVENT A DOUBLE FETCH OR RESET
+// VARIABLES TO PREVENT A DOUBLE FETCH OR RESET
 let isRendering: boolean = false;
 let currentUser: string = "";
 
