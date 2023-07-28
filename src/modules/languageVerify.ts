@@ -89,6 +89,9 @@ function languageVerify(
       case "SHELL":
         htmlSpan.style.backgroundColor = `#89E051`;
         break;
+      case "Objective-C++":
+        htmlSpan.style.backgroundColor = `#6866fb`;
+        break;
     }
   } else {
     languageDiv.remove();
