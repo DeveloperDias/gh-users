@@ -3,7 +3,11 @@ function languageVerify(
   htmlSpan: HTMLSpanElement,
   languageDiv: HTMLDivElement
 ) {
+
   if (language !== null) {
+
+    htmlSpan.style.backgroundColor = `#FFFF`
+
     switch (language.toUpperCase()) {
       case "C":
         htmlSpan.style.backgroundColor = `#555555`;
